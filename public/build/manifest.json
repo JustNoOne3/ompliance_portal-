@@ -1,0 +1,39 @@
+{
+  "public/images/dark-dash-bg.png": {
+    "file": "assets/dark-dash-bg-BijzXTvE.png",
+    "src": "public/images/dark-dash-bg.png"
+  },
+  "public/images/dash-bg4.png": {
+    "file": "assets/dash-bg4-ChdxwoFD.png",
+    "src": "public/images/dash-bg4.png"
+  },
+  "public/images/sidebar-bg.png": {
+    "file": "assets/sidebar-bg-DTplFaca.png",
+    "src": "public/images/sidebar-bg.png"
+  },
+  "public/images/sidebar-bg2.png": {
+    "file": "assets/sidebar-bg2-B4QpVa5e.png",
+    "src": "public/images/sidebar-bg2.png"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-DebYdJKj.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/filament/admin/theme.css": {
+    "file": "assets/theme-BNBjMT4Y.css",
+    "src": "resources/css/filament/admin/theme.css",
+    "isEntry": true
+  },
+  "resources/css/filament/user/theme.css": {
+    "file": "assets/theme-DzOK0T_L.css",
+    "src": "resources/css/filament/user/theme.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CUzlGF_f.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
