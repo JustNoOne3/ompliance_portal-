@@ -5,7 +5,7 @@
             @if(App\Models\Establishment::where('est_id', Illuminate\Support\Facades\Auth::user()->est_id)->get('est_class') == '1')
                 @livewire('tele-modal')
             @else
-                <x-filament::button wire:click="branchOnly" color="warning" size="xl" outlined style="margin: 15px; width: 100%;">
+                <x-filament::button wire:click="branchOnly" color="warning" size="xl" outlined style="margin: 15px; width: 95%;">
                     <div class="grid grid-flow-rows">
                         <img src="{{asset('images/1.png')}}" alt="" class="mr-2 mx-auto" style="width: 240px;">
                         <a class="text-base text-center text-wrap" style="text-wrap: wrap;">TELECOMMUTING REPORT</a>
