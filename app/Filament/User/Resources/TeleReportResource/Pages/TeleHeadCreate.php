@@ -94,13 +94,13 @@ class TeleHeadCreate extends Page implements HasForms
                                                 ->columns(2)
                                                 ->schema([
                                                     Forms\Components\TextInput::make('teleHead_manageMale')
-                                                        // ->required()
+                                                        ->required()
                                                         ->label("Male")
                                                         ->maxLength(255)
                                                         ->live()
                                                         ->numeric(),
                                                     Forms\Components\TextInput::make('teleHead_manageFemale')
-                                                        // ->required()
+                                                        ->required()
                                                         ->label("Female")
                                                         ->maxLength(255)
                                                         ->live()
@@ -110,13 +110,13 @@ class TeleHeadCreate extends Page implements HasForms
                                                 ->columns(2)
                                                 ->schema([
                                                     Forms\Components\TextInput::make('teleHead_superMale')
-                                                        // ->required()
+                                                        ->required()
                                                         ->label("Male")
                                                         ->maxLength(255)
                                                         ->live()
                                                         ->numeric(),
                                                     Forms\Components\TextInput::make('teleHead_superFemale')
-                                                        // ->required()
+                                                        ->required()
                                                         ->label("Female")
                                                         ->maxLength(255)
                                                         ->live()
@@ -126,13 +126,13 @@ class TeleHeadCreate extends Page implements HasForms
                                                 ->columns(2)
                                                 ->schema([
                                                     Forms\Components\TextInput::make('teleHead_rankMale')
-                                                        // ->required()
+                                                        ->required()
                                                         ->label("Male")
                                                         ->maxLength(255)
                                                         ->live()
                                                         ->numeric(),
                                                     Forms\Components\TextInput::make('teleHead_rankFemale')
-                                                        // ->required()
+                                                        ->required()
                                                         ->label("Female")
                                                         ->maxLength(255)
                                                         ->live()
@@ -318,6 +318,8 @@ class TeleHeadCreate extends Page implements HasForms
                                                     } 
                                                 }),
                                         ])
+                                    
+                                    
                                 ]),
                             
                         ]),

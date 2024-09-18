@@ -134,7 +134,7 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail, Has
         } elseif ($panel->getId() === 'user') {
             return $this->hasRole('user');
         } elseif ($panel->getId() === 'bwc_focal') {
-            return $this->hasRole('bwc_focal');
+            return $this->hasRole('bwc_focal') || $this->hasRole('bwc_custom');
         } elseif ($panel->getId() === 'focal') {
             return ($this->hasRole('focal') || $this->hasRole('focal_custom'));
         } else {

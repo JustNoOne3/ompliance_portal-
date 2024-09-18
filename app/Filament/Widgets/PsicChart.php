@@ -75,7 +75,7 @@ class PsicChart extends ChartWidget
                     $nameData[$c] = 'Electricity, Gas, Steam and Air Conditioning Supply';
                     break;
                 case 'C':
-                    $nameData[$c] = 'Manufaturing';
+                    $nameData[$c] = 'Manufacturing';
                     break;
                 case 'B':
                     $nameData[$c] = 'Mining and Quarrying';

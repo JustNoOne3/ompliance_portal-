@@ -19,6 +19,9 @@ use App\Filament\User\Resources\WairResource\Pages\NoAccIllCreate;
 use App\Filament\User\Resources\TeleReportResource\Pages\TeleHeadCreate;
 use App\Filament\User\Resources\TeleReportResource\Pages\TeleBranchCreate;
 use App\Filament\User\Resources\FlexibleWorkResource\Pages\FlexibleWorkCreate;
+use App\Filament\Resources\TeleReportResource\Pages\TeleHeadView;
+
+use App\Livewire\TeleHeadInfolist;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,3 +117,9 @@ Route::get('user/flexible-works/flexible-work-create', FlexibleWorkCreate::class
     ->name('user-flexible_works-flexible_work_create')
     ->middleware(Authenticate::class);
     // ->middleware(Spatie\Csp\AddCspHeaders::class);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Route::get('bwc_focal/tele-reports/report-view', TeleHeadView::class)
+    ->name('bwc_focal-tele-reports-report-view')
+    ->middleware(Authenticate::class);

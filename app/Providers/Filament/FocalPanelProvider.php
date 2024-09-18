@@ -38,7 +38,6 @@ class FocalPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
             
             ->login(Login::class)
-            ->registration(Register::class)
             ->emailVerification()
             ->favicon(asset('storage/sites/favicon.ico'))
             ->brandName(fn (GeneralSettings $settings) => $settings->brand_name)

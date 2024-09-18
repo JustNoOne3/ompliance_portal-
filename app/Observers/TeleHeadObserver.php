@@ -29,16 +29,16 @@ class TeleHeadObserver
         $teleReportHead->teleHead_estabId = Auth::user()->est_id;
         $teleReportHead->teleHead_total = $teleReportHead->teleHead_manageMale + $teleReportHead->teleHead_manageFemale + $teleReportHead->teleHead_superMale + $teleReportHead->teleHead_rankMale + $teleReportHead->teleHead_superFemale + $teleReportHead->teleHead_rankFemale;
         $teleReportHead->teleHead_specialTotal = 
-            $teleReportHead->teleBranch_disabMale + 
-            $teleReportHead->teleBranch_disabFemale +
-            $teleReportHead->teleBranch_disabFemale +
-            $teleReportHead->teleBranch_disabFemale +
-            $teleReportHead->teleBranch_disabFemale +
-            $teleReportHead->teleBranch_disabFemale +
-            $teleReportHead->teleBranch_disabFemale +
-            $teleReportHead->teleBranch_disabFemale +
-            $teleReportHead->teleBranch_disabFemale +
-            $teleReportHead->teleBranch_disabFemale;
+            $teleReportHead->teleHead_disabMale + 
+            $teleReportHead->teleHead_disabFemale +
+            $teleReportHead->teleHead_soloperMale +
+            $teleReportHead->teleHead_soloperFemale +
+            $teleReportHead->teleHead_immunoMale +
+            $teleReportHead->teleHead_immunoFemale +
+            $teleReportHead->teleHead_mentalMale +
+            $teleReportHead->teleHead_mentalFemale +
+            $teleReportHead->teleHead_seniorMale +
+            $teleReportHead->teleHead_seniorFemale;
 
         $wair = TeleReport::create(
             [

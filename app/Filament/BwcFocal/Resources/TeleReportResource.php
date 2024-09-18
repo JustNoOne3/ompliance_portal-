@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 
+use Filament\Tables\Columns\TextColumn;
 use App\Models\Establishment;
 
 class TeleReportResource extends Resource
@@ -48,7 +49,13 @@ class TeleReportResource extends Resource
                 }
             })
             ->columns([
-                //
+                TextColumn::make('created_at')
+                    ->label('Date of Submission'),
+                TextColumn::make('tele_reportType')
+                    ->label('Type of Report'),
+                // TextColumn::make('tele_estabId')
+                //     ->formatStateUsing(fn (string $state): string => (Establishment::query()->where(est_id, $state)->get('est_name'))),
+
             ])
             ->filters([
                 //

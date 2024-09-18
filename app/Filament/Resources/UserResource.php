@@ -47,6 +47,7 @@ class UserResource extends Resource
                                     ->alignCenter()
                                     ->columnSpanFull(),
                                 Forms\Components\TextInput::make('username')
+                                    ->unique()
                                     ->required()
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('email')

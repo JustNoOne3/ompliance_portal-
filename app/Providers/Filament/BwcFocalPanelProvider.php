@@ -19,7 +19,6 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Pages\Auth\Login;
 use App\Filament\Pages\Auth\Register;
-use App\Filament\User\Pages\EstablishmentView;
 use Afsakar\FilamentOtpLogin\FilamentOtpLoginPlugin;
 use Illuminate\Support\Facades\Auth;
 use Kenepa\Banner\BannerPlugin;
@@ -38,7 +37,6 @@ class BwcFocalPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
 
             ->login(Login::class)
-            ->registration(Register::class)
             ->emailVerification()
             ->favicon(asset('storage/sites/favicon.ico'))
             ->brandName(fn (GeneralSettings $settings) => $settings->brand_name)

@@ -13,6 +13,13 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use App\Filament\Exports\Month13thExporter;
+use Filament\Tables\Actions\ExportAction;
+use Filament\Actions\Exports\Enums\ExportFormat;
+
+use App\Models\Establishment;
+use Filament\Tables\Columns\TextColumn;
+
 class WairResource extends Resource
 {
     protected static ?string $model = Wair::class;
@@ -39,7 +46,15 @@ class WairResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('created_at')
+                    ->label('Date of Submission'),
+                TextColumn::make('wairs_reportType')
+                    ->label('Type of Report')
+                    ->toggleable(),
+                TextColumn::make('wairs_estabId')
+                    ->label('Name of Establishment')
+                    ->searchable()
+                    ->formatStateUsing(fn (string $state): string => (Establishment::query()->where('est_id', $state)->value('est_name'))),
             ])
             ->filters([
                 //
@@ -51,6 +66,15 @@ class WairResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->headerActions([
+                ExportAction::make()
+                    ->exporter(Month13thExporter::class)
+                    ->label('Export to Excel')
+                    ->formats([
+                        ExportFormat::Xlsx,
+                    ])
+                    ->fileName(date('Y-m-d') . '- 13th Month Report'),
             ])
             ->emptyStateHeading('Empty')
             ->emptyStateDescription('There is no Report Data yet')
