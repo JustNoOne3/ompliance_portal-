@@ -10,7 +10,7 @@ class HomeButtons extends Widget
 {
     protected int | string | array $columnSpan = 'full';
 
-    protected static ?int $sort = 1;
+    protected static ?int $sort = 3;
     
     protected static string $view = 'filament.user.widgets.home-buttons';
     // public function mount(){

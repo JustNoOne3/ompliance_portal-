@@ -8,6 +8,6 @@ class TsiWidget extends Widget
 {
     protected static string $view = 'filament.user.widgets.tsi-widget';
 
-    protected static ?int $sort = 3;
+    protected static ?int $sort = 2;
 
 }

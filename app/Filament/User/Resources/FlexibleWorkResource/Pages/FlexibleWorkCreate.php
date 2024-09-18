@@ -81,22 +81,23 @@ class FlexibleWorkCreate extends Page
             ->schema([
                 Wizard::make([
                     Wizard\Step::make('FWA / AWS')
-                        // ->description()
                         ->schema([
                             Livewire::make(FlexibleWorkTable::class)
                                 ->key('flexible-work-table')
                         ]),
                     Wizard\Step::make('Certification')
-                        // ->description()
                         ->schema([
                             Forms\Components\TextInput::make('fwa_owner')
+                                ->label('Name of Owner/Representative')
                                 ->maxLength(255),
                             Forms\Components\TextInput::make('fwa_designation')
+                                ->label('Designation')
                                 ->maxLength(255),
                             Forms\Components\TextInput::make('fwa_contact')
+                                ->label('Contact Number')
                                 ->maxLength(255),
                         ]),
-                ])
+                ])  
                 ->submitAction(new HtmlString(Blade::render(<<<BLADE
                     <x-filament::button color="success" icon="heroicon-o-check" tag="button" type="submit" size="lg" wire:click="create" >
                         Submit
