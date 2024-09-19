@@ -10,4 +10,25 @@ class LiModal extends Component
     {
         return view('livewire.li-modal');
     }
+
+    public function module1_download(){
+        return;
+    }
+    public function module1_submit(){
+        return;
+    }
+
+    public function module2_download(){
+        return;
+    }
+    public function module2_submit(){
+        return;
+    }
+
+    public function module3_download(){
+        return;
+    }
+    public function module3_submit(){
+        return;
+    }
 }
