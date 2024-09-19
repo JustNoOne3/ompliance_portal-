@@ -1,8 +1,8 @@
-<x-filament::modal id="modal-tsi" width="5xl">
+<x-filament::modal id="modal-tav" width="5xl">
     <x-slot name="trigger" style="height: 100%;">
-        <x-filament::button color="danger" size="xl" outlined style="margin: 15px; width: 100%;">
+        <x-filament::button color="success" size="xl" outlined style="margin: 15px; width: 100%;">
             <div class="grid grid-flow-rows">
-                <img src="{{asset('images/tsi-2.png')}}" alt="" class="mr-2 mx-auto" style="width: 100%;">
+                <img src="{{asset('images/tav-1.png')}}" alt="" class="mr-2 mx-auto" style="width: 100%;">
             </div>
         </x-filament::button>
     </x-slot>

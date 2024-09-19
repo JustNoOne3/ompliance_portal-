@@ -1,8 +1,8 @@
-<x-filament::modal id="modal-wair" width="7xl" height="5xl">
+<x-filament::modal id="modal-cshp" width="7xl" height="5xl">
     <x-slot name="trigger" style="height: 100%;">
-        <x-filament::button color="warning" size="xl" outlined style="margin: 15px; width: 100%;">
+        <x-filament::button color="primary" size="xl" outlined style="margin: 15px; width: 100%;">
             <div class="grid grid-flow-rows">
-                <img src="{{asset('images/cshp1.png')}}" alt="" class="mr-2 mx-auto" style="width: 100%;">
+                <img src="{{asset('images/cshp-2.png')}}" alt="" class="mr-2 mx-auto" style="width: 100%;">
             </div>
         </x-filament::button>
     </x-slot>

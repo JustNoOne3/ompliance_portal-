@@ -1,8 +1,10 @@
-<x-filament::modal id="modal-tsi" width="5xl">
-    <x-slot name="trigger" style="height: 100%;">
-        <x-filament::button color="danger" size="xl" outlined style="margin: 15px; width: 100%;">
+<x-filament::modal id="modal-aerw" width="5xl">
+    <style>
+    </style>
+    <x-slot name="trigger">
+        <x-filament::button color="primary" size="" outlined style="margin: 15px; width: 400px; height: auto; padding-left: 50px; padding-right: 50px;">
             <div class="grid grid-flow-rows">
-                <img src="{{asset('images/tsi-2.png')}}" alt="" class="mr-2 mx-auto" style="width: 100%;">
+                <img src="{{asset('images/aerw-1.png')}}" alt="" class="mr-2 mx-auto" style="width: 400px; height: auto;">
             </div>
         </x-filament::button>
     </x-slot>

@@ -6,10 +6,10 @@
     </style>
     <div class="grid grid-flow-col">
         <x-filament::section>
-            @livewire('cshp-modal')
+            @livewire('li-modal')
         </x-filament::section>
         <x-filament::section> 
-            @livewire('tsi-modal')
+            @livewire('tav-modal')
         </x-filament::section>
     </div>
 </x-filament-widgets::widget>
