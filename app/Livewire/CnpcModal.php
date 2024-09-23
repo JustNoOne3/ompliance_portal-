@@ -10,4 +10,8 @@ class CnpcModal extends Component
     {
         return view('livewire.cnpc-modal');
     }
+
+    public function cnpc_table(){
+        return;
+    }
 }

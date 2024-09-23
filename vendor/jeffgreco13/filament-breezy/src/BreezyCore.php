@@ -283,7 +283,7 @@ class BreezyCore implements Plugin
         $svg = (new Writer(
             new ImageRenderer(
                 new RendererStyle(150, 1, null, null, Fill::uniformColor(new Rgb(255, 255, 255), new Rgb(45, 55, 72))),
-                new SvgImageBackEnd()
+                new SvgImageBackEnd
             )
         ))->writeString($url);
 

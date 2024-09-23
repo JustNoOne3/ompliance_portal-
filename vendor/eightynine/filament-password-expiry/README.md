@@ -1,5 +1,10 @@
 # Filament Password Expiry
 
+## 🛠️ Be Part of the Journey
+
+Hi, I'm Eighty Nine. I created password expiry plugin to solve real problems I faced as a developer. Your sponsorship will allow me to dedicate more time to enhancing these tools and helping more people. [Become a sponsor](https://github.com/sponsors/eighty9nine) and join me in making a positive impact on the developer community.
+
+
 ## Allow your users to periodically reset their passwords, to enforce security.
 
 This package allows you to periodically reset your users passwords, to enforce security. In your system you have to force users to change their passwords every 30-90 days. This ensures that even if the user is no longer using the system, other people will not be able to login with their old password.
@@ -33,6 +38,11 @@ php artisan vendor:publish --tag="password-expiry-migrations"
 php artisan vendor:publish --tag="password-expiry-config"
 php artisan migrate
 ```
+If you need to, you can publish the translation file using the command:
+```bash
+php artisan vendor:publish --tag="password-expiry-translations"
+```
+
 3. In your authentication class, example `app/Models/User.php`, add the has password expiry trait to the model, the trait checks if all is setup correctly and will throw an exception if not. The trait will update the password_expires_at column when the user is created.
 ```php
 use EightyNine\FilamentPasswordExpiry\Concerns\HasPasswordExpiry;
@@ -42,6 +52,25 @@ class User extends Authenticatable
     use HasPasswordExpiry;
     ...
 }
+```
+
+4. This plugin does not hash passwods when creating a new password. Instead, make sure your password is cast as 'hashed' in your User model
+```php
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+
 ```
 
 You are all good to go! Now when a user is created, the password_expires_at column will be updated with the current date and time plus the expires_in config value. When the user tries to login, the middleware will check if the password_expires_at column is less than the current date and time. If it is, the user will be redirected to the password expiry page.

@@ -3,7 +3,6 @@
         <x-filament::button color="warning" size="xl" outlined style="margin: 15px; width: 100%;">
             <div class="grid grid-flow-rows">
                 <img src="{{asset('images/1.png')}}" alt="" class="mr-2 mx-auto" style="width: 240px;">
-                <a class="text-base text-center text-wrap" style="text-wrap: wrap;">TELECOMMUTING REPORT</a>
             </div>
         </x-filament::button>
     </x-slot>

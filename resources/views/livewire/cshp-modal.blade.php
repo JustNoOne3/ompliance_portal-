@@ -8,7 +8,7 @@
     </x-slot>
 
     <div class="grid grid-flow-rows">
-        <div class="h-14 font-bold text-2xl text-white p-4 text-center border border-gray-900 rounded-md mb-4" style="background-color: #2190ff; dark:background-color: #5A5D64;">
+        <div class="h-14 font-bold text-2xl text-white p-4 text-center border border-gray-900 rounded-md mb-4" style="background-color: #114bb0; dark:background-color: #114bb0;">
             {{-- <img src="{{asset('images/5.png')}}" alt="" class="mr-2 mx-auto mb-2" style="width: 80px;"> --}}
             Construction Safety and Health Program Online Application
         </div>

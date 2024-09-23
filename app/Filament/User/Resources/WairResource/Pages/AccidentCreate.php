@@ -28,6 +28,7 @@ use App\Models\TempEmp;
 use App\Models\Employees;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\Support\Htmlable;
+use Filament\Forms\Components\Textarea;
 
 class AccidentCreate extends Page implements HasForms
 {
@@ -116,7 +117,7 @@ class AccidentCreate extends Page implements HasForms
                                         ->required()
                                         ->label("Property Damage")
                                         ->maxLength(255),
-                                    Forms\Components\TextArea::make('ar_description')
+                                    TextArea::make('ar_description')
                                         ->required()
                                         ->columnSpan(2)
                                         ->label("Description of Accident")
@@ -420,7 +421,21 @@ class AccidentCreate extends Page implements HasForms
                         ]),
                     Wizard\Step::make('Certify')
                         ->columns(2)
-                        ->description(fn():Htmlable => new HtmlString("
+                        ->schema([
+                            Section::make()
+                                ->schema([
+                                    Forms\Components\TextInput::make('ar_safetyOfficer')
+                                        ->required()
+                                        ->label("OH Personnel / Safety Officer")
+                                        ->maxLength(255),
+                                    Forms\Components\FileUpload::make('ar_safetyOfficer_id')
+                                        ->required()
+                                        ->acceptedFileTypes(['application/pdf', 'image/jpeg', 'image/png'])
+                                        ->label("OH Personnel / Safety Officer ID "),
+                                    
+                                ]),
+                            Section::make()
+                                ->description(fn():Htmlable => new HtmlString("
                                         <div style=\"color: gray; font-size: 12px;\">Max File Size: 10mb</div>
                                         <div style=\"color: gray; font-size: 12px;\">Accepted File Types</div>
                                         <div style=\"color: gray; font-size: 12px;\">&nbsp; - PDF</div>
@@ -428,24 +443,19 @@ class AccidentCreate extends Page implements HasForms
                                         <div style=\"color: gray; font-size: 12px;\">&nbsp; - PNG</div>
                                     ")
                                 )
-                        ->schema([
-                            Forms\Components\TextInput::make('ar_safetyOfficer')
-                                ->required()
-                                ->label("OH Personnel / Safety Officer")
-                                ->maxLength(255),
-                            Forms\Components\FileUpload::make('ar_safetyOfficer_id')
-                                ->required()
-                                ->acceptedFileTypes(['application/pdf', 'image/jpeg', 'image/png'])
-                                ->label("OH Personnel / Safety Officer ID "),
-                            Forms\Components\TextInput::make('ar_employer')
-                                ->columnSpan(1)
-                                ->required()
-                                ->label("Employer Name")
-                                ->maxLength(255),
-                            Forms\Components\FileUpload::make('ar_employer_id')
-                                ->required()
-                                ->acceptedFileTypes(['application/pdf', 'image/jpeg', 'image/png'])
-                                ->label("Employer ID"),
+                                ->schema([
+                                    Forms\Components\TextInput::make('ar_employer')
+                                        ->columnSpan(1)
+                                        ->required()
+                                        ->label("Employer Name")
+                                        ->maxLength(255),
+                                    Forms\Components\FileUpload::make('ar_employer_id')
+                                        ->required()
+                                        ->acceptedFileTypes(['application/pdf', 'image/jpeg', 'image/png'])
+                                        ->label("Employer ID"),
+                                    
+                                ])
+                            
                         ]),
                     Wizard\Step::make('Review')
                         ->schema([

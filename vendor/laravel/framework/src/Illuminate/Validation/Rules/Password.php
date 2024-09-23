@@ -49,42 +49,42 @@ class Password implements Rule, DataAwareRule, ValidatorAwareRule
      *
      * @var bool
      */
-    protected $mixedCase = true;
+    protected $mixedCase = false;
 
     /**
      * If the password requires at least one letter.
      *
      * @var bool
      */
-    protected $letters = true;
+    protected $letters = false;
 
     /**
      * If the password requires at least one number.
      *
      * @var bool
      */
-    protected $numbers = true;
+    protected $numbers = false;
 
     /**
      * If the password requires at least one symbol.
      *
      * @var bool
      */
-    protected $symbols = true;
+    protected $symbols = false;
 
     /**
      * If the password should not have been compromised in data leaks.
      *
      * @var bool
      */
-    protected $uncompromised = true;
+    protected $uncompromised = false;
 
     /**
      * The number of times a password can appear in data leaks before being considered compromised.
      *
      * @var int
      */
-    protected $compromisedThreshold = 3;
+    protected $compromisedThreshold = 0;
 
     /**
      * Additional validation rules that should be merged into the default rules during validation.

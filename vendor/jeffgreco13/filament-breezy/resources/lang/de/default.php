@@ -86,6 +86,7 @@ return [
                 'cancel_setup' => 'Einstellung abbrechen',
             ],
             'setup_key' => 'Einstellungsschlüssel',
+            'must_enable' => 'Sie müssen die Zwei-Faktor-Authentifizierung aktivieren, um diese Anwendung zu verwenden.',
             'not_enabled' => [
                 'title' => 'Sie haben die Zwei-Faktor-Authentifizierung nicht aktiviert.',
                 'description' => 'Wenn die Zwei-Faktor-Authentifizierung aktiviert ist, werden Sie während der Authentifizierung zur Eingabe eines sicheren, zufälligen Tokens aufgefordert. Sie können dieses Token über die Google Authenticator-App auf Ihrem Handy abrufen.',
