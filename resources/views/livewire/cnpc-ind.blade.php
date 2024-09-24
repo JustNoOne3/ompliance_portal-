@@ -1,9 +1,10 @@
 <x-filament::modal id="modal-cnpc" width="5xl">
     <x-slot name="trigger" >
-        <x-filament::button color="primary" size="xl"  style="margin: 15px;">
+        <x-filament::button color="primary" size="xl"  style="margin: 15px; width: 100%; height: 600px;">
             <div class="grid grid-flow-rows">
                 <img src="{{asset('images/cnpc_ind.png')}}" alt="" class="mr-2 mx-auto" style="width: 240px;">
-                <a class="text-base text-center text-wrap" style="text-wrap: wrap;">Individual</a>
+                <a class="text-base text-center text-wrap text-lg" style="text-wrap: wrap;">INDIVIDUAL</a>
+                <p class="text-slate-700 text-wrap" style="margin-top: 30px;">Apply for Certificate of No Pending <br> Case as an Individual</p>
             </div>
         </x-filament::button>
     </x-slot>
