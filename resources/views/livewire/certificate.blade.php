@@ -66,7 +66,8 @@
                 font-size: 10px;
                 margin-top: 15%;
                 margin-bottom: 2%;
-                margin-left: 25%;
+                /* margin-left: 25%; */
+                margin-left: 10%;
             }
             .sec-text{
                 margin-left: 10%;

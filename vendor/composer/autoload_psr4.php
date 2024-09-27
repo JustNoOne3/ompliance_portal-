@@ -104,6 +104,8 @@ return array(
     'Kirschbaum\\PowerJoins\\' => array($vendorDir . '/kirschbaum-development/eloquent-power-joins/src'),
     'Kenepa\\Banner\\Database\\Factories\\' => array($vendorDir . '/kenepa/banner/database/factories'),
     'Kenepa\\Banner\\' => array($vendorDir . '/kenepa/banner/src'),
+    'Joaopaulolndev\\FilamentPdfViewer\\Database\\Factories\\' => array($vendorDir . '/joaopaulolndev/filament-pdf-viewer/database/factories'),
+    'Joaopaulolndev\\FilamentPdfViewer\\' => array($vendorDir . '/joaopaulolndev/filament-pdf-viewer/src'),
     'Jeffgreco13\\FilamentBreezy\\' => array($vendorDir . '/jeffgreco13/filament-breezy/src'),
     'Illuminate\\Support\\' => array($vendorDir . '/laravel/framework/src/Illuminate/Macroable', $vendorDir . '/laravel/framework/src/Illuminate/Collections', $vendorDir . '/laravel/framework/src/Illuminate/Conditionable'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),

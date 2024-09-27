@@ -1,6 +1,6 @@
 <x-filament::modal id="modal-tele" width="5xl">
     <x-slot name="trigger" style="height: 100%;">
-        <x-filament::button color="warning" size="xl" outlined style="margin: 15px; width: 100%;">
+        <x-filament::button color="danger" size="xl" outlined style="margin: 15px; width: 100%;">
             <div class="grid grid-flow-rows">
                 <img src="{{asset('images/1.png')}}" alt="" class="mr-2 mx-auto" style="width: 240px;">
             </div>

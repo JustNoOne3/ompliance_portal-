@@ -6,6 +6,8 @@ use App\Models\Establishment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+use Filament\Notifications\Notification;
+
 class EstablishmentObserver
 {
     /**
@@ -21,14 +23,19 @@ class EstablishmentObserver
         
         $timestampInMilliseconds = microtime(true) * 100;
         $rand1 = intval(microtime(true) * 321);
-        $rand2 = intval(microtime(true) * 123);
+        $rand2 = intval(microtime(true) * 82);
         $region = intval($establishment->region_id)/100000000;
         if($region<10){
             $region = '0'.$region;
+            $city = substr($establishment->city_id, 1);
+        }else{
+            $city = substr($establishment->city_id, 2);
         }
 
-        $dataId = 'R'.$region."-RP0-".now()->year.'-'.$rand2;
+        $city = substr($city, 0, 03);
+        $dataId = 'R'.$region.'-'.$city.'-'.$rand2;
 
+        $establishment->est_regId = $dataId;
         $establishment->est_id = $rand1;
         $establishment->est_status = "unvalidated";
         $establishment->est_acknowledgement = now()->format('Y-m-d');
@@ -38,6 +45,16 @@ class EstablishmentObserver
         $user = User::query()->where('id', Auth::user()->id)->first();
         $user->est_id = $rand1; 
         $user->save();
+        
+        Notification::make()
+            ->title("Congratulations! You have Successfully Registered your Establishment.")
+            ->body("Your Establishment ID is " . $dataId . " .")
+            ->icon('heroicon-o-building-office-2')
+            ->iconColor('success')
+            ->persistent()
+            ->success()
+            ->send();
+        
         
     }
 

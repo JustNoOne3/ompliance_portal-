@@ -145,3 +145,18 @@
 .fi-dropdown-trigger button.fi-btn {
     @apply !p-1;
 }
+
+.fi-ta-row {
+    .fi-ta-cell:last-of-type {
+        @apply relative right-0 top-0 bottom-0;
+        > div {
+            @apply bg-white dark:bg-gray-900;
+        }
+    }
+    .fi-ta-cell:last-of-type {
+        position: sticky;
+        > div {
+            @apply shadow-md rounded-full py-2;
+        }
+    }
+}

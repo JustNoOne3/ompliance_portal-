@@ -24,6 +24,7 @@ use Closure;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\HtmlString;
+use Filament\Infolists\Components\ImageEntry;
 
 use App\Models\PsicSection;
 use App\Models\PsicDivision;
@@ -51,13 +52,12 @@ class RegisterEst extends Page implements HasForms
 
     public function create()
     {
-        // dd($this->form->getState());
         Establishment::create($this->form->getState());
-        Notification::make()
-            ->title('Establishment is successfully Registered')
-            ->icon('heroicon-o-document-text')
-            ->iconColor('success')
-            ->send();
+        // Notification::make()
+        //     ->title('Establishment is successfully Registered')
+        //     ->icon('heroicon-o-document-text')
+        //     ->iconColor('success')
+        //     ->send();
         return redirect('user');
 
         
@@ -588,6 +588,9 @@ class RegisterEst extends Page implements HasForms
                                         ->placeholder('09XX-XXX-XXXX'),
                                     Forms\Components\TextInput::make('est_email')
                                         ->email()
+                                        ->default(function (){
+                                            return Auth::user()->email;
+                                        })
                                         ->required()
                                         ->label('Email Address')
                                         ->maxLength(255),

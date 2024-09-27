@@ -10,4 +10,9 @@ class CnpcEstab extends Component
     {
         return view('livewire.cnpc-estab');
     }
+
+    public function downloadForm1()
+    {
+        return response()->download(public_path('forms/testForm.pdf'));
+    }
 }

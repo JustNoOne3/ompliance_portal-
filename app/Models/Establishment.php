@@ -12,6 +12,7 @@ class Establishment extends Model
     protected $primaryKey = 'est_id';
 
     protected $fillable = [
+        'est_regId',
         'est_name',
         'est_street',
         'region_id',

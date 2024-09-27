@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('establishments', function (Blueprint $table) {
             $table->id('est_id');
+            $table->string('est_regId')->nullable();
             $table->string('est_name')->unique();
             $table->string('est_street');
             $table->bigInteger('region_id')->nullable();

@@ -14,7 +14,9 @@
             Form here
         </div>
         <div class="grid grid-flow-col mx-auto">
-
+            <x-filament::button wire:click="downloadForm1" color="danger" size="l"  style="margin: 15px;">
+                <p>Download Form</p>
+            </x-filament::button>
         </div>
     </div>
 

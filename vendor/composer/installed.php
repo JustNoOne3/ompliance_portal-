@@ -3,7 +3,7 @@
         'name' => 'riodwanto/superduper-filament-starter-kit',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f9cffb60a6dd4206734cf65c24a58c61c59a702b',
+        'reference' => '99dc235e35e4332ca622bff48dd8886f1ad1e446',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -613,6 +613,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'joaopaulolndev/filament-pdf-viewer' => array(
+            'pretty_version' => 'v1.0.5',
+            'version' => '1.0.5.0',
+            'reference' => '31f93c828ecefe54f16047453254b3cf7036183c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../joaopaulolndev/filament-pdf-viewer',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'kenepa/banner' => array(
             'pretty_version' => '0.0.5',
             'version' => '0.0.5.0',
@@ -1132,8 +1141,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '3.0.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1205,7 +1214,7 @@
         'riodwanto/superduper-filament-starter-kit' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f9cffb60a6dd4206734cf65c24a58c61c59a702b',
+            'reference' => '99dc235e35e4332ca622bff48dd8886f1ad1e446',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

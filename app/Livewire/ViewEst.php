@@ -15,6 +15,9 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\Grid;
 use App\Models\Geocode;
+use App\Models\PsicSection;
+use Filament\Infolists\Components\ImageEntry;
+use Joaopaulolndev\FilamentPdfViewer\Infolists\Components\PdfViewerEntry;
 
 
 class ViewEst extends Component implements HasForms, HasInfolists
@@ -95,13 +98,33 @@ class ViewEst extends Component implements HasForms, HasInfolists
                         ->schema([
                             TextEntry::make('psic_section')
                                 ->color('warning')
-                                ->label('Nature of Business'),
+                                ->label('Nature of Business')
+                                ->state(function (Establishment $record) {
+                                    return PsicSection::query()
+                                                ->where('section_code', $record->psic_section)
+                                                ->value('section_name');
+                                }),
                             TextEntry::make('est_products')
                                 ->color('warning')
                                 ->label('Products'),
                             TextEntry::make('est_class')
                                 ->color('warning')
-                                ->label('Business Classification'),
+                                ->label('Business Classification')
+                                ->state(function (Establishment $record) {
+                                    switch($record->est_class){
+                                        case '1':
+                                            return "Head Office";
+                                            break;
+                                        case '2':
+                                            return "Branch";
+                                            break;
+                                        case '3':
+                                            return "Franchise";
+                                            break;
+                                        default:
+                                            return;
+                                    };
+                                }),
                         ]),
                     Section::make('')
                         ->heading('Other Details')
@@ -171,6 +194,14 @@ class ViewEst extends Component implements HasForms, HasInfolists
                             TextEntry::make('est_email')
                                 ->color('warning')
                                 ->label('Email Address'),
+                        ]),
+                    Section::make('')
+                        ->heading('Attachments')
+                        ->schema([
+                            PdfViewerEntry::make('est_permit')
+                                ->label('Business Permit'),
+                            PdfViewerEntry::make('est_govId')
+                                ->label('Government Issued ID'),
                         ]),
                 ]),
                 
