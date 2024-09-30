@@ -59,7 +59,7 @@ class TavModal extends Component implements HasForms, HasTable
                         }
                     })
                     ->button()
-                    ->icon('heroicon-o-eye')
+                    ->icon('heroicon-o-paper-airplane')
                     ->modalHeading('TAV Form Submission')
                     ->form([
                         FileUpload::make('tavSubmit_file')
@@ -86,7 +86,7 @@ class TavModal extends Component implements HasForms, HasTable
                         }
                     })
                     ->button()
-                    ->icon('heroicon-o-eye')
+                    ->icon('heroicon-o-paper-airplane')
                     ->modalHeading('TAV Form Submission')
                     ->form([
                         Select::make('region_id')

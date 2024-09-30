@@ -6,6 +6,10 @@ use App\Filament\Resources\TavReportResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use App\Models\TavReport;
+
 class ListTavReports extends ListRecords
 {
     protected static string $resource = TavReportResource::class;
@@ -29,10 +33,10 @@ class ListTavReports extends ListRecords
                         ->required(),
                 ])
                 ->action(function (array $data){
-                    return LiReport::create([
-                        'li_reportName' => $data['tav_reportName'],
-                        'li_category' => $data['tav_category'],
-                        'li_reportUpload' => $data['tav_reportUpload'],
+                    return TavReport::create([
+                        'tav_reportName' => $data['tav_reportName'],
+                        'tav_category' => $data['tav_category'],
+                        'tav_reportUpload' => $data['tav_reportUpload'],
                     ]);
                 }),
         ];

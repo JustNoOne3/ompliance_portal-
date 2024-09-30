@@ -61,7 +61,7 @@ class LiModal extends Component implements HasForms, HasTable
                         }
                     })
                     ->button()
-                    ->icon('heroicon-o-eye')
+                    ->icon('heroicon-o-paper-airplane')
                     ->modalHeading('LI Form Submission')
                     ->form([
                         FileUpload::make('liSubmit_file')
@@ -88,7 +88,7 @@ class LiModal extends Component implements HasForms, HasTable
                         }
                     })
                     ->button()
-                    ->icon('heroicon-o-eye')
+                    ->icon('heroicon-o-paper-airplane')
                     ->modalHeading('LI Form Submission')
                     ->form([
                         Select::make('region_id')

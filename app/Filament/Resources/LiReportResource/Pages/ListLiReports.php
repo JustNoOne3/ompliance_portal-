@@ -36,7 +36,7 @@ class ListLiReports extends ListRecords
                     return LiReport::create([
                         'li_reportName' => $data['li_reportName'],
                         'li_category' => $data['li_category'],
-                        'li_reportUpload' => $data['li_reportUpload'],php
+                        'li_reportUpload' => $data['li_reportUpload'],
                     ]);
                 }),
         ];
