@@ -20,6 +20,7 @@ use Filament\Forms\Components\Select;
 
 use App\Models\Establishment;
 use Illuminate\Support\Facades\Auth;
+use Filament\Tables\Grouping\Group;
 
 class TavModal extends Component implements HasForms, HasTable
 {
@@ -35,6 +36,11 @@ class TavModal extends Component implements HasForms, HasTable
                     ->label('Report / Form')
                     ->searchable(),
             ])
+            ->groups([
+                Group::make('tav_category')
+                    ->label(' '),
+            ])
+            ->defaultGroup('tav_category')
             ->filters([
                 // ...
             ])

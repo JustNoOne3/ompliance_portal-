@@ -10,4 +10,10 @@ class TsiModal extends Component
     {
         return view('livewire.tsi-modal');
     }
+    public function electrical(){
+        return;
+    }
+    public function mechanical(){
+        return;
+    }
 }

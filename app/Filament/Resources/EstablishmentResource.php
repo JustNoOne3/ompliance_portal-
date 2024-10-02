@@ -23,6 +23,12 @@ use Filament\Tables\Actions\ExportAction;
 use Filament\Actions\Exports\Enums\ExportFormat;
 use App\Filament\Exports\EstablishmentExporter;
 
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TimePicker;
+use Filament\Forms\Components\DatePicker;
+use App\Models\MeetSchedule;
+use HusamTariq\FilamentTimePicker\Forms\Components\TimePickerField;
+
 class EstablishmentResource extends Resource
 {
     protected static ?string $model = Establishment::class;
@@ -423,8 +429,6 @@ class EstablishmentResource extends Resource
                 //
             ])
             ->actions([
-                // Tables\Actions\ViewAction::make(),
-                // Tables\Actions\EditAction::make(),
                 Tables\Actions\Action::make('gen_cert')
                     ->label('Generate COR')
                     ->icon('heroicon-s-document-arrow-down')
@@ -467,24 +471,55 @@ class EstablishmentResource extends Resource
                             return redirect()->route('admin-certificate');
                         }
                     ),
-                Tables\Actions\Action::make('remove_cert')
-                    ->label('Remove COR')
-                    ->icon('heroicon-s-minus-circle')
+                // Tables\Actions\Action::make('remove_cert')
+                //     ->label('Remove COR')
+                //     ->icon('heroicon-s-minus-circle')
+                //     ->button()
+                //     ->color('danger')
+                //     ->hidden(function (Establishment $record){
+                //         if(!$record->est_certIssuance == null){
+                //             return false;
+                //         }else{ 
+                //             return true;
+                //         }
+                //     })
+                //     ->action(
+                //         function (Establishment $record): void{
+                //             $record->est_certIssuance = null;
+                //             $record->save();
+                //         }
+                //     ),
+
+                Tables\Actions\Action::make('sched')
+                    ->label('Request for Verification')
+                    ->icon('heroicon-s-document-magnifying-glass')
+                    ->color('warning')
                     ->button()
-                    ->color('danger')
-                    ->hidden(function (Establishment $record){
-                        if(!$record->est_certIssuance == null){
-                            return false;
-                        }else{ 
-                            return true;
-                        }
-                    })
+                    ->modalHeading('Schedule your Meeting')
+                    ->form([
+                        DatePicker::make('meet_date')
+                            ->required()
+                            ->native(false)
+                            ->label("Select Date for the Scheduled Verification"),
+                        TimePickerField::make('meet_time')
+                            ->required()
+                            ->okLabel("Confirm")
+                            ->cancelLabel("Cancel")
+                            ->label("Select Desired Time"),
+                    ])
                     ->action(
-                        function (Establishment $record): void{
-                            $record->est_certIssuance = null;
-                            $record->save();
+                        function (array $data, Establishment $record) {
+                            MeetSchedule::create([
+                                'meet_estabId' => $record->est_id,
+                                'meet_estEmail'=> $record->est_email,
+                                'meet_date' => $data->meet_date,
+                                'meet_time'=> $data->meet_time,
+                            ]);
+
+                            
+                            return;
                         }
-                    ),
+                    )
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

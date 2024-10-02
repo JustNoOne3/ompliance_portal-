@@ -3,4 +3,6 @@
 3. run " php artisan migrate:fresh --seed "
 4. run " php artisan shield:install --fresh "
     - copy the id of the admin@mail.com (super admin) and paste it when asked
-5. upload necessary data from "to_upload"
+5. run " php artisan storage:link " 
+6. upload necessary data from "to_upload" 
+7. 
