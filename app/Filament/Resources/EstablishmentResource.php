@@ -27,7 +27,12 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\DatePicker;
 use App\Models\MeetSchedule;
+use App\Models\User;
 use HusamTariq\FilamentTimePicker\Forms\Components\TimePickerField;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VerificationMeeting;
 
 class EstablishmentResource extends Resource
 {
@@ -509,14 +514,20 @@ class EstablishmentResource extends Resource
                     ])
                     ->action(
                         function (array $data, Establishment $record) {
+                            $meetId = rand(1000000, 9999999);
                             MeetSchedule::create([
+                                'id' => $meetId,
                                 'meet_estabId' => $record->est_id,
                                 'meet_estEmail'=> $record->est_email,
-                                'meet_date' => $data->meet_date,
-                                'meet_time'=> $data->meet_time,
+                                'meet_date' => $data['meet_date'],
+                                'meet_time'=> $data['meet_time'],
                             ]);
+                            $meet = MeetSchedule::query()->where('id', $meetId)->first();
 
-                            
+                            $user = User::query()->where('est_id', $record->est_id)->value('email');
+                            Mail::to($user)
+                                ->send(new VerificationMeeting($meet));
+
                             return;
                         }
                     )

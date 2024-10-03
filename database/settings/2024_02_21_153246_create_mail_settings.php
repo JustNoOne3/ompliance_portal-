@@ -16,5 +16,16 @@ return new class extends SettingsMigration
         $this->migrator->addEncrypted('mail.password', 'b7f09ec290fccf');
         $this->migrator->add('mail.timeout', null);
         $this->migrator->add('mail.local_domain', null);
+        
+        // $this->migrator->add('mail.from_address', 'ocp@bwc-staging.com');
+        // $this->migrator->add('mail.from_name', 'Online Compliance Portal');
+        // $this->migrator->add('mail.driver', 'smtp');
+        // $this->migrator->add('mail.host', 'smtp.hostinger.com');
+        // $this->migrator->add('mail.port', '465');
+        // $this->migrator->add('mail.encryption', 'SSL');
+        // $this->migrator->addEncrypted('mail.username', 'ocp@bwc-staging.com');
+        // $this->migrator->addEncrypted('mail.password', '@Bwc_justnoone14@');
+        // $this->migrator->add('mail.timeout', null);
+        // $this->migrator->add('mail.local_domain', null);
     }
 };

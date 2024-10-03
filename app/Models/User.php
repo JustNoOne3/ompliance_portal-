@@ -120,6 +120,9 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail, Has
         if(config('filament-shield.user.enabled', false)){
             FilamentShield::createRole(name: config('filament-shield.user.name', 'user'));
         }
+        if(config('filament-sheild.li_focal.enabled', false)){
+            FilamentShield::createRole(name: config('filament-shield.li_focal.name', 'li_focal'));
+        }
     }
 
     public function canAccessPanel(Panel $panel): bool
@@ -130,7 +133,7 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail, Has
         }
         if ($panel->getId() === 'admin') {
             // return $this->hasRole('admin') || $this->hasRole('super_admin') && $this->hasVerifiedEmail();
-            return $this->hasRole(Utils::getSuperAdminName());
+            return $this->hasRole('admin') || $this->hasRole(Utils::getSuperAdminName());
         } elseif ($panel->getId() === 'user') {
             return $this->hasRole('user');
         } elseif ($panel->getId() === 'bwc_focal') {

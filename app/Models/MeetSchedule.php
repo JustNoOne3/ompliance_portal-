@@ -10,6 +10,7 @@ class MeetSchedule extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'meet_estabId',
         'meet_estEmail',
         'meet_date',

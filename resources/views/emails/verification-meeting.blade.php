@@ -1,19 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>TestMail</title>
-</head>
-<body>
-    <h1>{{ $mailData['title'] }}</h1>
-    <p>{{ $mailData['body'] }}</p>
+<style>
+    .container {
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        background-image: url({{asset('images/meet-bg.png')}});
+        background-size: cover;
+        background-repeat: no-repeat;
 
-    <p>Thank you</p>
-</body>
-</html>
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        
+    }
+    .deets{
+        margin: auto; 
+        padding: auto;
+    }
+
+</style>
+<div class="container">
+
+    <div class="deets">
+        <h4>Meeting Details</h4>
+        <div>
+            <p>Date:    {{$sched->meet_date}}</p>
+            <p>Time:    {{$sched->meet_time}}</p>
+        </div>
+    </div>
+
+</div>
+

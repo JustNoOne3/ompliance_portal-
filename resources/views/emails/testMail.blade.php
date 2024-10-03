@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <title>TestMail</title>
@@ -16,4 +16,54 @@
 
     <p>Thank you</p>
 </body>
+</html> --}}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TestMail</title>
+        <style>
+            .container {
+                background-color: #d3e2e3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: auto;
+            }
+            .deets{
+                background-color: #ffffff;
+                width: 800px;
+                height: 500px;
+                padding: auto;
+                margin: auto;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+            .template{
+
+            }
+            .gmeet{
+                 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="deets">
+                <div class="template">
+                    <img src="{{asset('images/gmeet-1.png')}}" class="gmeet">
+                </div>
+                
+                <h4>Meeting Details</h4>
+                <div>
+                    <p>Date:    test</p>
+                    <p>Time:    test</p>
+                </div>
+            </div>
+        
+        </div>
+    </body>
 </html>
+
+
