@@ -112,7 +112,7 @@ class AccIllCreate extends Page implements HasForms
                                         ->required()
                                         ->label("Property Damage")
                                         ->maxLength(255),
-                                    Forms\Components\TextArea::make('ia_description')
+                                    Forms\Components\Textarea::make('ia_description')
                                         ->required()
                                         ->columnSpan(2)
                                         ->label("Description of Accident")

@@ -63,7 +63,7 @@ class PsicChart extends ChartWidget
                     $nameData[$c] = 'Accommodation and Food Service Activities';
                     break;
                 case 'G':
-                    $nameData[$c] = 'Wholesale and Retail Trade; Repair og Motor Vehicles and Motorcycles';
+                    $nameData[$c] = 'Wholesale and Retail Trade; Repair of MV';
                     break;
                 case 'F':
                     $nameData[$c] = 'Construction';

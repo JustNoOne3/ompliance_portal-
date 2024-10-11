@@ -27,6 +27,7 @@ use App\Livewire\EmployeeReviewTable;
 use App\Models\TempEmp;
 use App\Models\Employees;
 use Filament\Notifications\Notification;
+use App\Models\Establishment;
 
 class Month13thSubmit extends Page implements HasForms
 {
@@ -63,7 +64,7 @@ class Month13thSubmit extends Page implements HasForms
 
     public function form(Form $form): Form
     {
-        
+        $estab = Establishment::query()->where('est_id', Auth::user()->est_id)->first();
         return $form
             ->schema([
                 Wizard::make([
@@ -74,16 +75,21 @@ class Month13thSubmit extends Page implements HasForms
                                 ->schema([
                                     Forms\Components\TextInput::make('month13th_ownRep')
                                         ->label('Name of Employer\'s Representative')
+                                        ->default($estab->est_owner)
                                         ->columnSpan(1)
                                         ->required(),
                                     Forms\Components\TextInput::make('month13th_designation')
                                         ->label('Designation ')
+                                        ->default($estab->est_designation)
                                         ->columnSpan(1)
                                         ->required(),
                                     Forms\Components\TextInput::make('month13th_contact')
                                         ->label('Contact Number')
                                         ->columnSpan(1)
-                                        ->required(),
+                                        ->default($estab->est_contactNum)
+                                        ->required()
+                                        ->mask('0999-999-9999')
+                                        ->placeholder('09XX-XXX-XXXX'),
                                 ]),
                             Section::make()
                                 ->columns(3)
@@ -91,7 +97,15 @@ class Month13thSubmit extends Page implements HasForms
                                     Forms\Components\Select::make('month13th_yearCovered')
                                         ->label('Year Covered by Report')
                                         ->placeholder('Select a year covered by this report.')
-                                        ->options(range(2019, now()->year))
+                                        // ->options(range(2019, now()->year))
+                                        ->options([
+                                            '2019',
+                                            '2020',
+                                            '2021',
+                                            '2022',
+                                            '2023',
+                                            '2024',
+                                        ])
                                         ->native(false)
                                         ->columnSpan(1)
                                         

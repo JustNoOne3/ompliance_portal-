@@ -25,6 +25,7 @@ class Month13thObserver
         $microseconds = substr(explode('.', microtime(true))[1], 0, 6);
         $uuid = 'month13th-' . substr($uuid, 0, 7) . '-' . $microseconds;
 
+        $month13th->id = $uuid;
         $month13th->month13th_estabId = Auth::user()->est_id;
         // session()->put('month13thId', $month13th->id);
     }

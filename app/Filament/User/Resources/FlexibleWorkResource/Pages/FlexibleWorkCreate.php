@@ -94,8 +94,9 @@ class FlexibleWorkCreate extends Page
                                 ->label('Designation')
                                 ->maxLength(255),
                             Forms\Components\TextInput::make('fwa_contact')
-                                ->label('Contact Number')
-                                ->maxLength(255),
+                                ->label('Contact No.')
+                                ->mask('0999-999-9999')
+                                ->placeholder('09XX-XXX-XXXX'),
                         ]),
                 ])  
                 ->submitAction(new HtmlString(Blade::render(<<<BLADE

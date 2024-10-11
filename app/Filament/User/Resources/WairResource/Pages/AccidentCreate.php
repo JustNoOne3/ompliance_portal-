@@ -117,7 +117,7 @@ class AccidentCreate extends Page implements HasForms
                                         ->required()
                                         ->label("Property Damage")
                                         ->maxLength(255),
-                                    TextArea::make('ar_description')
+                                    Textarea::make('ar_description')
                                         ->required()
                                         ->columnSpan(2)
                                         ->label("Description of Accident")
@@ -457,231 +457,231 @@ class AccidentCreate extends Page implements HasForms
                                 ])
                             
                         ]),
-                    Wizard\Step::make('Review')
-                        ->schema([
-                            Section::make()
-                                ->schema([
-                                    Forms\Components\TextInput::make('ar_owner')
-                                        ->readOnly()
-                                        ->label("Name of Owner"),
-                                    Forms\Components\TextInput::make('ar_nationality')
-                                        ->readOnly()
-                                        ->label("Nationality of Owner"),
-                                ]),
-                            Section::make('Accident Report')
-                                ->columns(2)
-                                ->schema([
-                                    Forms\Components\TextInput::make('ar_dateTime')
-                                        ->readOnly()
-                                        ->columnSpan(2)
-                                        ->label("Date and Time of Accident"),
-                                    Forms\Components\TextInput::make('ar_injury')
-                                        ->readOnly()
-                                        ->label("Personal Injury"),
-                                    Forms\Components\TextInput::make('ar_damage')
-                                        ->readOnly()
-                                        ->label("Property Damage"),
-                                    Forms\Components\TextInput::make('ar_description')
-                                        ->readOnly()
-                                        ->columnSpan(2)
-                                        ->label("Description of Accident"),
-                                    Forms\Components\TextInput::make('ar_wasInjured')
-                                        ->readOnly()
-                                        ->label("Was injured doing regular part of job at time of accident?"),
-                                    Forms\Components\TextInput::make('ar_ntInjuredReason')
-                                        ->readOnly()
-                                        ->label("If not, why?"),
-                                    Forms\Components\TextInput::make('ar_agencyInvolved')
-                                        ->readOnly()
-                                        ->label("The Agency Involved "),
-                                    Forms\Components\TextInput::make('ar_agencyPart')
-                                        ->readOnly()
-                                        ->label("The Agency Part Involved "),
-                                    Forms\Components\TextInput::make('ar_accidentType')
-                                        ->readOnly()
-                                        ->label("Accident Type"),
-                                    Forms\Components\TextInput::make('ar_condition')
-                                        ->readOnly()
-                                        ->label("Unsafe Mechanical or Physical Condition"),
-                                    Forms\Components\TextInput::make('ar_unsafeAct')
-                                        ->readOnly()
-                                        ->label("The Unsafe Act"),
-                                    Forms\Components\TextInput::make('ar_factor')
-                                        ->readOnly()
-                                        ->label("Contributing Factor"),
-                                    ]),
-                            Section::make('Preventive Measures')
-                                ->columns(2)
-                                ->schema([
-                                    Forms\Components\TextInput::make('ar_preventiveMeasure')
-                                        ->readOnly()
-                                        ->label("Preventive Measures (Taken or Recommended)"),
-                                    Forms\Components\TextInput::make('ar_safeguard')  
-                                        ->readOnly()
-                                        ->label("Mechanical Guards, Personal Protective Equipment and other Safeguards"),
-                                    Forms\Components\TextInput::make('ar_useSafeguard')
-                                    ->readOnly()
-                                        ->label("Were all safeguards in use?"),
-                                    Forms\Components\TextInput::make('ar_ntSafeguardReason')
-                                        ->label("If not, why?")
-                                        ->readOnly(),
-                                    Section::make('Control Instituted')
-                                        ->columns(2)
-                                        ->schema([
-                                            Forms\Components\TextInput::make('ar_engineer')
-                                                ->readOnly()
-                                                ->label("Engineering"),
-                                            Forms\Components\TextInput::make('ar_engineer_cost')
-                                                ->readOnly()
-                                                ->label("Cost"),
-                                            Forms\Components\TextInput::make('ar_administrative')
-                                                ->readOnly()
-                                                ->label("Administrative"),
-                                            Forms\Components\TextInput::make('ar_administrative_cost')
-                                                ->readOnly()
-                                                ->label("Cost"),
-                                            Forms\Components\TextInput::make('ar_ppe')
-                                                ->readOnly()
-                                                ->label("PPE"),
-                                            Forms\Components\TextInput::make('ar_ppeCost')
-                                                ->readOnly()
-                                                ->label("Cost"),
+                    // Wizard\Step::make('Review')
+                    //     ->schema([
+                    //         Section::make()
+                    //             ->schema([
+                    //                 Forms\Components\TextInput::make('ar_owner')
+                    //                     ->readOnly()
+                    //                     ->label("Name of Owner"),
+                    //                 Forms\Components\TextInput::make('ar_nationality')
+                    //                     ->readOnly()
+                    //                     ->label("Nationality of Owner"),
+                    //             ]),
+                    //         Section::make('Accident Report')
+                    //             ->columns(2)
+                    //             ->schema([
+                    //                 Forms\Components\TextInput::make('ar_dateTime')
+                    //                     ->readOnly()
+                    //                     ->columnSpan(2)
+                    //                     ->label("Date and Time of Accident"),
+                    //                 Forms\Components\TextInput::make('ar_injury')
+                    //                     ->readOnly()
+                    //                     ->label("Personal Injury"),
+                    //                 Forms\Components\TextInput::make('ar_damage')
+                    //                     ->readOnly()
+                    //                     ->label("Property Damage"),
+                    //                 Forms\Components\TextInput::make('ar_description')
+                    //                     ->readOnly()
+                    //                     ->columnSpan(2)
+                    //                     ->label("Description of Accident"),
+                    //                 Forms\Components\TextInput::make('ar_wasInjured')
+                    //                     ->readOnly()
+                    //                     ->label("Was injured doing regular part of job at time of accident?"),
+                    //                 Forms\Components\TextInput::make('ar_ntInjuredReason')
+                    //                     ->readOnly()
+                    //                     ->label("If not, why?"),
+                    //                 Forms\Components\TextInput::make('ar_agencyInvolved')
+                    //                     ->readOnly()
+                    //                     ->label("The Agency Involved "),
+                    //                 Forms\Components\TextInput::make('ar_agencyPart')
+                    //                     ->readOnly()
+                    //                     ->label("The Agency Part Involved "),
+                    //                 Forms\Components\TextInput::make('ar_accidentType')
+                    //                     ->readOnly()
+                    //                     ->label("Accident Type"),
+                    //                 Forms\Components\TextInput::make('ar_condition')
+                    //                     ->readOnly()
+                    //                     ->label("Unsafe Mechanical or Physical Condition"),
+                    //                 Forms\Components\TextInput::make('ar_unsafeAct')
+                    //                     ->readOnly()
+                    //                     ->label("The Unsafe Act"),
+                    //                 Forms\Components\TextInput::make('ar_factor')
+                    //                     ->readOnly()
+                    //                     ->label("Contributing Factor"),
+                    //                 ]),
+                    //         Section::make('Preventive Measures')
+                    //             ->columns(2)
+                    //             ->schema([
+                    //                 Forms\Components\TextInput::make('ar_preventiveMeasure')
+                    //                     ->readOnly()
+                    //                     ->label("Preventive Measures (Taken or Recommended)"),
+                    //                 Forms\Components\TextInput::make('ar_safeguard')  
+                    //                     ->readOnly()
+                    //                     ->label("Mechanical Guards, Personal Protective Equipment and other Safeguards"),
+                    //                 Forms\Components\TextInput::make('ar_useSafeguard')
+                    //                 ->readOnly()
+                    //                     ->label("Were all safeguards in use?"),
+                    //                 Forms\Components\TextInput::make('ar_ntSafeguardReason')
+                    //                     ->label("If not, why?")
+                    //                     ->readOnly(),
+                    //                 Section::make('Control Instituted')
+                    //                     ->columns(2)
+                    //                     ->schema([
+                    //                         Forms\Components\TextInput::make('ar_engineer')
+                    //                             ->readOnly()
+                    //                             ->label("Engineering"),
+                    //                         Forms\Components\TextInput::make('ar_engineer_cost')
+                    //                             ->readOnly()
+                    //                             ->label("Cost"),
+                    //                         Forms\Components\TextInput::make('ar_administrative')
+                    //                             ->readOnly()
+                    //                             ->label("Administrative"),
+                    //                         Forms\Components\TextInput::make('ar_administrative_cost')
+                    //                             ->readOnly()
+                    //                             ->label("Cost"),
+                    //                         Forms\Components\TextInput::make('ar_ppe')
+                    //                             ->readOnly()
+                    //                             ->label("PPE"),
+                    //                         Forms\Components\TextInput::make('ar_ppeCost')
+                    //                             ->readOnly()
+                    //                             ->label("Cost"),
 
-                                        ]),
-                                ]),
-                            Section::make('Affected Workers')
-                                ->schema([
-                                    Livewire::make(EmployeeTable::class)
-                                        ->key('employee-table1'),
-                                ]),
-                            Section::make('Manpower')
-                                ->columns(4)
-                                ->schema([
-                                    Forms\Components\TextInput::make('ar_compensation')
-                                        ->columnSpan(2)
-                                        ->readOnly()
-                                        ->label("Compensation"),
-                                    Forms\Components\TextInput::make('ar_compensation_amount')
-                                        ->columnSpan(2)
-                                        ->readOnly()
-                                        ->label("Compensation Amount"),
-                                    Forms\Components\TextInput::make('ar_medical')
-                                        ->columnSpan(2)
-                                        ->readOnly()
-                                        ->label("Medical and Hospitalization"),
-                                    Forms\Components\TextInput::make('ar_burial')
-                                        ->columnSpan(2)
-                                        ->readOnly()
-                                        ->label("Burial"),
-                                    Forms\Components\TextInput::make('ar_timeLostDay')
-                                        ->columnSpan(2)
-                                        ->readOnly()
-                                        ->label("Time Lost on Day of injury"),
-                                    Forms\Components\TextInput::make('ar_timeLostDay_hours')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Hours:"),
-                                    Forms\Components\TextInput::make('ar_timeLostDay_mins')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Minutes:"),
-                                    Forms\Components\TextInput::make('ar_timeLostSubseq')
-                                        ->columnSpan(2)
-                                        ->readOnly()
-                                        ->label("Time Lost on Subsequent Days"),
-                                    Forms\Components\TextInput::make('ar_timeLostSubseq_hours')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Hours:"),
-                                    Forms\Components\TextInput::make('ar_timeLostSubseq_mins')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Minutes:"),
-                                    Forms\Components\TextInput::make('ar_timeReducedOutput')
-                                        ->columnSpan(2)
-                                        ->readOnly()
-                                        ->label("Time on light work or reduced output"),
-                                    Forms\Components\TextInput::make('ar_timeReducedOutput_days')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Days:"),
-                                    Forms\Components\TextInput::make('ar_timeReducedOutput_percent')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Percentage Output:"),
-                                ]),
-                            Section::make('Machinery and Tools')
-                                ->columns(2)
-                                ->schema([
-                                    Forms\Components\TextInput::make('ar_machineryDamage')
-                                        ->columnSpan(2)
-                                        ->readOnly()
-                                        ->label("Damage to Machinery and Tools (Describe)"),
-                                    Forms\Components\TextInput::make('ar_machineryDamage_repair')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Cost of Repair or Replacement"),
-                                    Forms\Components\TextInput::make('ar_machineryDamage_time')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Lost Production Time (in hours)"),
-                                    Forms\Components\TextInput::make('ar_machineryDamage_production')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Cost of Lost production time"),
-                                ]),
-                            Section::make('Materials')
-                                ->columns(2)
-                                ->schema([
-                                    Forms\Components\TextInput::make('ar_materialDamage')
-                                        ->columnSpan(2)
-                                        ->readOnly()
-                                        ->label("Damage to Materials (Describe)"),
-                                    Forms\Components\TextInput::make('ar_materialDamage_repair')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Cost of Repair or Replacement"),
-                                    Forms\Components\TextInput::make('ar_materialDamage_time')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Lost Production Time (in hours)")
-                                        ->maxLength(255),
-                                    Forms\Components\TextInput::make('ar_materialDamage_production')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Cost of Lost production time"),
-                                ]),
-                            Section::make('Equipments')
-                                ->columns(2)
-                                ->schema([
-                                    Forms\Components\TextArea::make('ar_equipmentDamage')
-                                        ->columnSpan(2 )
-                                        ->readOnly()
-                                        ->label("Damage to Equipment Tools (Describe)"),
-                                    Forms\Components\TextInput::make('ar_equipmentDamage_repair')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Cost of Repair or Replacement"),
-                                    Forms\Components\TextInput::make('ar_equipmentDamage_time')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Lost Production Time (in hours)"),
-                                    Forms\Components\TextInput::make('ar_equipmentDamage_production')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Cost of Lost production time"),
-                                ]),
-                            Section::make()
-                                ->schema([
-                                    Forms\Components\TextInput::make('ar_safetyOfficer')
-                                        ->readOnly()
-                                        ->label("OH Personnel / Safety Officer"),
-                                    Forms\Components\TextInput::make('ar_employer')
-                                        ->columnSpan(1)
-                                        ->readOnly()
-                                        ->label("Employer Name"),
-                                ]),
-                        ]),
+                    //                     ]),
+                    //             ]),
+                    //         Section::make('Affected Workers')
+                    //             ->schema([
+                    //                 Livewire::make(EmployeeTable::class)
+                    //                     ->key('employee-table1'),
+                    //             ]),
+                    //         Section::make('Manpower')
+                    //             ->columns(4)
+                    //             ->schema([
+                    //                 Forms\Components\TextInput::make('ar_compensation')
+                    //                     ->columnSpan(2)
+                    //                     ->readOnly()
+                    //                     ->label("Compensation"),
+                    //                 Forms\Components\TextInput::make('ar_compensation_amount')
+                    //                     ->columnSpan(2)
+                    //                     ->readOnly()
+                    //                     ->label("Compensation Amount"),
+                    //                 Forms\Components\TextInput::make('ar_medical')
+                    //                     ->columnSpan(2)
+                    //                     ->readOnly()
+                    //                     ->label("Medical and Hospitalization"),
+                    //                 Forms\Components\TextInput::make('ar_burial')
+                    //                     ->columnSpan(2)
+                    //                     ->readOnly()
+                    //                     ->label("Burial"),
+                    //                 Forms\Components\TextInput::make('ar_timeLostDay')
+                    //                     ->columnSpan(2)
+                    //                     ->readOnly()
+                    //                     ->label("Time Lost on Day of injury"),
+                    //                 Forms\Components\TextInput::make('ar_timeLostDay_hours')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Hours:"),
+                    //                 Forms\Components\TextInput::make('ar_timeLostDay_mins')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Minutes:"),
+                    //                 Forms\Components\TextInput::make('ar_timeLostSubseq')
+                    //                     ->columnSpan(2)
+                    //                     ->readOnly()
+                    //                     ->label("Time Lost on Subsequent Days"),
+                    //                 Forms\Components\TextInput::make('ar_timeLostSubseq_hours')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Hours:"),
+                    //                 Forms\Components\TextInput::make('ar_timeLostSubseq_mins')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Minutes:"),
+                    //                 Forms\Components\TextInput::make('ar_timeReducedOutput')
+                    //                     ->columnSpan(2)
+                    //                     ->readOnly()
+                    //                     ->label("Time on light work or reduced output"),
+                    //                 Forms\Components\TextInput::make('ar_timeReducedOutput_days')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Days:"),
+                    //                 Forms\Components\TextInput::make('ar_timeReducedOutput_percent')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Percentage Output:"),
+                    //             ]),
+                    //         Section::make('Machinery and Tools')
+                    //             ->columns(2)
+                    //             ->schema([
+                    //                 Forms\Components\TextInput::make('ar_machineryDamage')
+                    //                     ->columnSpan(2)
+                    //                     ->readOnly()
+                    //                     ->label("Damage to Machinery and Tools (Describe)"),
+                    //                 Forms\Components\TextInput::make('ar_machineryDamage_repair')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Cost of Repair or Replacement"),
+                    //                 Forms\Components\TextInput::make('ar_machineryDamage_time')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Lost Production Time (in hours)"),
+                    //                 Forms\Components\TextInput::make('ar_machineryDamage_production')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Cost of Lost production time"),
+                    //             ]),
+                    //         Section::make('Materials')
+                    //             ->columns(2)
+                    //             ->schema([
+                    //                 Forms\Components\TextInput::make('ar_materialDamage')
+                    //                     ->columnSpan(2)
+                    //                     ->readOnly()
+                    //                     ->label("Damage to Materials (Describe)"),
+                    //                 Forms\Components\TextInput::make('ar_materialDamage_repair')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Cost of Repair or Replacement"),
+                    //                 Forms\Components\TextInput::make('ar_materialDamage_time')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Lost Production Time (in hours)")
+                    //                     ->maxLength(255),
+                    //                 Forms\Components\TextInput::make('ar_materialDamage_production')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Cost of Lost production time"),
+                    //             ]),
+                    //         Section::make('Equipments')
+                    //             ->columns(2)
+                    //             ->schema([
+                    //                 Forms\Components\TextArea::make('ar_equipmentDamage')
+                    //                     ->columnSpan(2 )
+                    //                     ->readOnly()
+                    //                     ->label("Damage to Equipment Tools (Describe)"),
+                    //                 Forms\Components\TextInput::make('ar_equipmentDamage_repair')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Cost of Repair or Replacement"),
+                    //                 Forms\Components\TextInput::make('ar_equipmentDamage_time')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Lost Production Time (in hours)"),
+                    //                 Forms\Components\TextInput::make('ar_equipmentDamage_production')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Cost of Lost production time"),
+                    //             ]),
+                    //         Section::make()
+                    //             ->schema([
+                    //                 Forms\Components\TextInput::make('ar_safetyOfficer')
+                    //                     ->readOnly()
+                    //                     ->label("OH Personnel / Safety Officer"),
+                    //                 Forms\Components\TextInput::make('ar_employer')
+                    //                     ->columnSpan(1)
+                    //                     ->readOnly()
+                    //                     ->label("Employer Name"),
+                    //             ]),
+                    //     ]),
                 ])
                 ->submitAction(new HtmlString(Blade::render(<<<BLADE
                     <x-filament::button color="success" icon="heroicon-o-check" tag="button" type="submit" size="lg" wire:click="create" >

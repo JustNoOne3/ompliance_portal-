@@ -92,4 +92,9 @@ class Certificate extends Component
     {
         return view('livewire.certificate');
     }
+
+    public function homeDash()
+    {
+        return redirect('user');
+    }
 }

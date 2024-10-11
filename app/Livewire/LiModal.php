@@ -53,7 +53,7 @@ class LiModal extends Component implements HasForms, HasTable
                     ->button()
                     ->icon('heroicon-o-arrow-down-tray')
                     ->action(function (LiReport $record){
-                        $path = "storage\\".$record->li_reportUpload;
+                        $path = "storage/".$record->li_reportUpload;
                         return response()->download(public_path($path));
                     }),
 
@@ -76,12 +76,17 @@ class LiModal extends Component implements HasForms, HasTable
                             ->required(),
                     ])
                     ->action(function (array $data, LiReport $record){
-                        return LiSubmission::create([
+                        
+                        LiSubmission::create([
                             'liSubmit_type' => $record->li_reportName,
-                            'liSubmit_file' => $data['liSubmit_File'],
+                            'liSubmit_file' => $data['liSubmit_file'],
                             'liSubmit_status' => 'Submitted',
                             'liSubmit_region' => Establishment::query()->where('est_id', Auth::user()->est_id)->value('region_id'),
                         ]);
+                        return Notification::make()
+                            ->title('LI Form was successfully submitted')
+                            ->success()
+                            ->send();
                     }),
 
                 Action::make('submit1') // no registered establishment
@@ -131,7 +136,7 @@ class LiModal extends Component implements HasForms, HasTable
                     ->action(function (array $data, LiReport $record){
                         return LiSubmission::create([
                             'liSubmit_type' => $record->li_reportName,
-                            'liSubmit_file' => $data['liSubmit_File'],
+                            'liSubmit_file' => $data['liSubmit_file'],
                             'liSubmit_status' => 'Submitted',
                             'liSubmit_region' => $data['region_id'],
                             'liSubmit_user' => Auth::user()->id,

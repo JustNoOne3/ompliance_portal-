@@ -257,6 +257,9 @@ class EmployeesResource extends Resource
 
     public static function table(Table $table): Table
     {
+        if(!Auth::user()->est_id){
+            redirect()->route('register-est');
+        }
         return $table
             ->query(fn (Employees $employees) => $employees
                 ->when(true , 

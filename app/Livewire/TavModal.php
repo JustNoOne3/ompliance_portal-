@@ -51,7 +51,7 @@ class TavModal extends Component implements HasForms, HasTable
                     ->button()
                     ->icon('heroicon-o-arrow-down-tray')
                     ->action(function (TavReport $record){
-                        $path = "storage\\".$record->tav_reportUpload;
+                        $path = "storage/".$record->tav_reportUpload;
                         return response()->download(public_path($path));
                     }),
                 Action::make('submit') // if establishment is bind to the user

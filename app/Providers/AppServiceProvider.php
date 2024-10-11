@@ -26,6 +26,8 @@ use App\Models\TeleReportBranch;
 use App\Observers\TeleBranchObserver;
 use App\Models\Employees;
 use App\Observers\EmpObserver;
+use App\Models\FlexibleWork;
+use App\Observers\FlexibleWorkObserver;
 use Livewire;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Gate;
@@ -67,6 +69,7 @@ class AppServiceProvider extends ServiceProvider
         TeleReportHead::observe(TeleHeadObserver::class);
         TeleReportBranch::observe(TeleBranchObserver::class);
         Employees::observe(EmpObserver::class);
+        FlexibleWork::observe(FlexibleWorkObserver::class);
         Gate::define('banner-manager', function (User $user) {
             return Auth::user()->hasRole('super_admin');
         });

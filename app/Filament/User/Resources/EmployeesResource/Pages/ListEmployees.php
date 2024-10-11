@@ -19,6 +19,9 @@ class ListEmployees extends ListRecords
 
     protected function getHeaderActions(): array
     {
+        if(!Auth::user()->est_id){
+            return redirect()->route('register-est');
+        }
         return [
             // \EightyNine\ExcelImport\ExcelImportAction::make()
             //     ->color("warning")

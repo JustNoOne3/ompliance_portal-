@@ -121,6 +121,9 @@
 
 
         @media print{
+            .nav-top-b{
+                display:none;
+            }
             .preview-cont{
                 display: none;
             }
@@ -172,7 +175,15 @@
     </style>
 </head>
 <body >
+    
     <div>
+        {{--  --}}
+        <nav class="nav-top-b" style="height: 20px;">
+            <button class="" style="margin-top: 10px; margin-left: 100px;" wire:click="homeDash">
+                Back to Dashboard
+            </button>
+        </nav>
+        {{--  --}}
         <div class="preview-cont">
             <div class="grid grid-flow-col p-10">
                 <div class="grid p-10">

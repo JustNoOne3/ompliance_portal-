@@ -154,52 +154,52 @@ class IllnessCreate extends Page implements HasForms
                                 ->acceptedFileTypes(['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png'])
                                 ->label("Employer ID"),
                         ]),
-                    Wizard\Step::make('Review')
-                        ->schema([
-                            Section::make()
-                                ->schema([
-                                    Forms\Components\TextInput::make('ip_owner')
-                                        ->required()
-                                        ->label("Name of Owner")
-                                        ->readOnly(),
-                                    Forms\Components\TextInput::make('ip_nationality')
-                                        ->required()
-                                        ->label("Nationality of Owner")
-                                        ->readOnly(),
-                                ]),
-                            Section::make()
-                                ->schema([
-                                    Forms\Components\TextInput::make('ip_engineer')
-                                        ->required()
-                                        ->label("Engineering")
-                                        ->readOnly(),
-                                    Forms\Components\TextInput::make('ip_engineer_cost')
-                                        ->required()
-                                        ->label("Cost")
-                                        ->readOnly(),
-                                    Forms\Components\TextInput::make('ip_administrative')
-                                        ->required()
-                                        ->label("Administrative")
-                                        ->readOnly(),
-                                    Forms\Components\TextInput::make('ip_administrative_cost')
-                                        ->required()
-                                        ->label("Cost")
-                                        ->readOnly(),
-                                    Forms\Components\TextInput::make('ip_ppe')
-                                        ->required()
-                                        ->label("PPE")
-                                        ->readOnly(),
-                                    Forms\Components\TextInput::make('ip_ppeCost')
-                                        ->required()
-                                        ->label("Cost")
-                                        ->readOnly(),
-                                ]),
-                            Section::make('Affected Workers')
-                                ->schema([
-                                    Livewire::make(EmployeeTable::class)
-                                        ->key('employee-table-4'),
-                                ]),  
-                        ])
+                    // Wizard\Step::make('Review')
+                    //     ->schema([
+                    //         Section::make()
+                    //             ->schema([
+                    //                 Forms\Components\TextInput::make('ip_owner')
+                    //                     ->required()
+                    //                     ->label("Name of Owner")
+                    //                     ->readOnly(),
+                    //                 Forms\Components\TextInput::make('ip_nationality')
+                    //                     ->required()
+                    //                     ->label("Nationality of Owner")
+                    //                     ->readOnly(),
+                    //             ]),
+                    //         Section::make()
+                    //             ->schema([
+                    //                 Forms\Components\TextInput::make('ip_engineer')
+                    //                     ->required()
+                    //                     ->label("Engineering")
+                    //                     ->readOnly(),
+                    //                 Forms\Components\TextInput::make('ip_engineer_cost')
+                    //                     ->required()
+                    //                     ->label("Cost")
+                    //                     ->readOnly(),
+                    //                 Forms\Components\TextInput::make('ip_administrative')
+                    //                     ->required()
+                    //                     ->label("Administrative")
+                    //                     ->readOnly(),
+                    //                 Forms\Components\TextInput::make('ip_administrative_cost')
+                    //                     ->required()
+                    //                     ->label("Cost")
+                    //                     ->readOnly(),
+                    //                 Forms\Components\TextInput::make('ip_ppe')
+                    //                     ->required()
+                    //                     ->label("PPE")
+                    //                     ->readOnly(),
+                    //                 Forms\Components\TextInput::make('ip_ppeCost')
+                    //                     ->required()
+                    //                     ->label("Cost")
+                    //                     ->readOnly(),
+                    //             ]),
+                    //         Section::make('Affected Workers')
+                    //             ->schema([
+                    //                 Livewire::make(EmployeeTable::class)
+                    //                     ->key('employee-table-4'),
+                    //             ]),  
+                    //     ])
                     
                 ])
                 ->submitAction(new HtmlString(Blade::render(<<<BLADE
